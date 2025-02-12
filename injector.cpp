@@ -53,7 +53,6 @@ int main(int argc, char* argv[]) {
     VirtualFreeEx(hProcess, remotePath, 0, MEM_RELEASE);
     CloseHandle(hThread);
     CloseHandle(hThread2);
-
     CloseHandle(hProcess);
 
     std::cout << "DLL injected successfully." << std::endl;

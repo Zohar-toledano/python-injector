@@ -1,15 +1,31 @@
-import functools
+import functools as functools________________________________long_name
 
 
-def hook(func,name):
-	globals()[name] = func(globals()[name])
+def main________________________________long_name():
+	try:
+		def hook(name):
+			func = globals().get(name)
+			if func is not None and callable(func):
 
-# Define the decorator
-def hook1(func):
-    @functools.wraps(func)  # Ensures the original function's metadata is preserved
-    def wrapper(*args, **kwargs):
-        print(f"hooked function: {func.__name__}")
-        return func(*args, **kwargs)
-    return wrapper
+				def decorator(hook_func):
+					@functools________________________________long_name.wraps(func)
+					def wrapper(*args, **kwargs):
+						return hook_func(func, *args, **kwargs)
 
-hook(hook1,"foo")
+					globals()[name] = wrapper
+
+				return decorator
+		# define here your functions
+		@hook("foo")
+		def foo_hook(original_func, *args, **kwargs):
+			print("hook2", globals())
+			return original_func(*args, **kwargs)
+	except:
+		pass
+
+
+main________________________________long_name()
+del (
+	functools________________________________long_name,
+	main________________________________long_name,
+)
