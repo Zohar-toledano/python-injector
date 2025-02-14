@@ -1,14 +1,11 @@
-import functools as functools________________________________long_name
-
-
 def main________________________________long_name():
+	import functools
 	try:
 		def hook(name):
 			func = globals().get(name)
 			if func is not None and callable(func):
-
 				def decorator(hook_func):
-					@functools________________________________long_name.wraps(func)
+					@functools.wraps(func)
 					def wrapper(*args, **kwargs):
 						return hook_func(func, *args, **kwargs)
 
@@ -25,7 +22,4 @@ def main________________________________long_name():
 
 
 main________________________________long_name()
-del (
-	functools________________________________long_name,
-	main________________________________long_name,
-)
+del	main________________________________long_name

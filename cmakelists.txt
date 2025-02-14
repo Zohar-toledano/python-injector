@@ -2,5 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 project(injector)
 
 add_library(injected SHARED injected.cpp)
+
+set(PYTHON_SCRIPT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/injected.py")
+
 add_executable(injector injector.cpp)
 
+target_compile_definitions(injected PRIVATE PYTHON_SCRIPT_PATH="${PYTHON_SCRIPT_PATH}")

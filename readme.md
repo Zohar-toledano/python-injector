@@ -1,5 +1,5 @@
-# pythoninject.py
-EXE that injects Python code into a running 32 bit python process. 
+# Python injector
+EXE that injects Python code into a running 32/64 bit python process. 
 
 ## Usage
 

@@ -5,8 +5,9 @@
 #include <string>
 #include <regex>
 
-#define PYTHON_SCRIPT_PATH "C:\\path\\to\\script.py"
-
+#ifndef PYTHON_SCRIPT_PATH
+#define PYTHON_SCRIPT_PATH
+#endif
 // // Manually defined types for Python C API
 typedef int PyGILState_STATE; // Assume enum compatibility
 typedef int (*Py_IsInitializedFunc)();
